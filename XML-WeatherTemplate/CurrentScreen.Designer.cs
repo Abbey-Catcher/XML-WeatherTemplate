@@ -32,10 +32,14 @@
             this.forecastLabel = new System.Windows.Forms.Label();
             this.min = new System.Windows.Forms.Label();
             this.max = new System.Windows.Forms.Label();
-            this.conditions6 = new System.Windows.Forms.PictureBox();
+            this.conditionsBox = new System.Windows.Forms.PictureBox();
             this.date1 = new System.Windows.Forms.Label();
             this.current = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.conditions6)).BeginInit();
+            this.cityOutput = new System.Windows.Forms.Label();
+            this.lastUpdatedLabel = new System.Windows.Forms.Label();
+            this.sunriseLabel = new System.Windows.Forms.Label();
+            this.sunsetLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.conditionsBox)).BeginInit();
             this.SuspendLayout();
             // 
             // todaysForecast
@@ -65,7 +69,7 @@
             // 
             this.min.BackColor = System.Drawing.SystemColors.Highlight;
             this.min.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.min.Location = new System.Drawing.Point(149, 345);
+            this.min.Location = new System.Drawing.Point(87, 344);
             this.min.Name = "min";
             this.min.Size = new System.Drawing.Size(50, 50);
             this.min.TabIndex = 67;
@@ -75,26 +79,28 @@
             // 
             this.max.BackColor = System.Drawing.Color.Red;
             this.max.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.max.Location = new System.Drawing.Point(98, 344);
+            this.max.Location = new System.Drawing.Point(35, 344);
             this.max.Name = "max";
             this.max.Size = new System.Drawing.Size(50, 50);
             this.max.TabIndex = 66;
             this.max.Text = "max";
             // 
-            // conditions6
+            // conditionsBox
             // 
-            this.conditions6.Location = new System.Drawing.Point(99, 158);
-            this.conditions6.Name = "conditions6";
-            this.conditions6.Size = new System.Drawing.Size(100, 100);
-            this.conditions6.TabIndex = 65;
-            this.conditions6.TabStop = false;
+            this.conditionsBox.BackColor = System.Drawing.Color.Transparent;
+            this.conditionsBox.Location = new System.Drawing.Point(90, 127);
+            this.conditionsBox.Name = "conditionsBox";
+            this.conditionsBox.Size = new System.Drawing.Size(144, 148);
+            this.conditionsBox.TabIndex = 65;
+            this.conditionsBox.TabStop = false;
             // 
             // date1
             // 
-            this.date1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.date1.Location = new System.Drawing.Point(36, 64);
+            this.date1.BackColor = System.Drawing.Color.Transparent;
+            this.date1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.date1.Location = new System.Drawing.Point(163, 62);
             this.date1.Name = "date1";
-            this.date1.Size = new System.Drawing.Size(240, 74);
+            this.date1.Size = new System.Drawing.Size(159, 74);
             this.date1.TabIndex = 64;
             this.date1.Text = "date";
             this.date1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -103,28 +109,75 @@
             // 
             this.current.BackColor = System.Drawing.Color.Transparent;
             this.current.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.current.Location = new System.Drawing.Point(101, 280);
+            this.current.Location = new System.Drawing.Point(33, 291);
             this.current.Name = "current";
             this.current.Size = new System.Drawing.Size(100, 32);
             this.current.TabIndex = 68;
             this.current.Text = "current";
             this.current.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cityOutput
+            // 
+            this.cityOutput.BackColor = System.Drawing.Color.Transparent;
+            this.cityOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.cityOutput.Location = new System.Drawing.Point(3, 62);
+            this.cityOutput.Name = "cityOutput";
+            this.cityOutput.Size = new System.Drawing.Size(159, 74);
+            this.cityOutput.TabIndex = 69;
+            this.cityOutput.Text = "city";
+            this.cityOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lastUpdatedLabel
+            // 
+            this.lastUpdatedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lastUpdatedLabel.Location = new System.Drawing.Point(23, 411);
+            this.lastUpdatedLabel.Name = "lastUpdatedLabel";
+            this.lastUpdatedLabel.Size = new System.Drawing.Size(277, 48);
+            this.lastUpdatedLabel.TabIndex = 70;
+            this.lastUpdatedLabel.Text = "lastUpdated";
+            this.lastUpdatedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sunriseLabel
+            // 
+            this.sunriseLabel.BackColor = System.Drawing.Color.Transparent;
+            this.sunriseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.sunriseLabel.Location = new System.Drawing.Point(176, 300);
+            this.sunriseLabel.Name = "sunriseLabel";
+            this.sunriseLabel.Size = new System.Drawing.Size(111, 38);
+            this.sunriseLabel.TabIndex = 71;
+            this.sunriseLabel.Text = "sunrise";
+            this.sunriseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sunsetLabel
+            // 
+            this.sunsetLabel.BackColor = System.Drawing.Color.Transparent;
+            this.sunsetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.sunsetLabel.Location = new System.Drawing.Point(176, 362);
+            this.sunsetLabel.Name = "sunsetLabel";
+            this.sunsetLabel.Size = new System.Drawing.Size(111, 38);
+            this.sunsetLabel.TabIndex = 72;
+            this.sunsetLabel.Text = "sunset";
+            this.sunsetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CurrentScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Controls.Add(this.sunsetLabel);
+            this.Controls.Add(this.sunriseLabel);
+            this.Controls.Add(this.lastUpdatedLabel);
+            this.Controls.Add(this.cityOutput);
             this.Controls.Add(this.current);
             this.Controls.Add(this.min);
             this.Controls.Add(this.max);
-            this.Controls.Add(this.conditions6);
+            this.Controls.Add(this.conditionsBox);
             this.Controls.Add(this.date1);
             this.Controls.Add(this.forecastLabel);
             this.Controls.Add(this.todaysForecast);
             this.Name = "CurrentScreen";
             this.Size = new System.Drawing.Size(325, 475);
-            ((System.ComponentModel.ISupportInitialize)(this.conditions6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.conditionsBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -135,8 +188,12 @@
         private System.Windows.Forms.Label forecastLabel;
         private System.Windows.Forms.Label min;
         private System.Windows.Forms.Label max;
-        private System.Windows.Forms.PictureBox conditions6;
+        private System.Windows.Forms.PictureBox conditionsBox;
         private System.Windows.Forms.Label date1;
         private System.Windows.Forms.Label current;
+        private System.Windows.Forms.Label cityOutput;
+        private System.Windows.Forms.Label lastUpdatedLabel;
+        private System.Windows.Forms.Label sunriseLabel;
+        private System.Windows.Forms.Label sunsetLabel;
     }
 }

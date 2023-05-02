@@ -20,35 +20,54 @@ namespace XML_WeatherTemplate
 
         public void DisplayCurrent()
         {
-            convertTo();
+            int conditionValue = int.Parse(Form1.days[0].conditionValue);
+            double tempCurrent = double.Parse(Form1.days[0].currentTemp);
+            double currentTemp = Math.Round(tempCurrent);
+            double tempMax = double.Parse(Form1.days[0].tempHigh);
+            double maxTemp = Math.Round(tempMax);
+            double tempMin = double.Parse(Form1.days[0].tempLow);
+            double minTemp = Math.Round(tempMin);
 
-            //cityOutput.Text = Form1.days[0].location;
             date1.Text = Form1.days[0].date;
-            //Form1.days[0].conditionValue =
-            //int conditionValue = int.Parse(Form1.days[0].conditionValue);
+            cityOutput.Text = Form1.days[0].city + Form1.days[0].country;
+            //May have to format times
+            sunriseLabel.Text = Form1.days[0].sunrise;
+            sunsetLabel.Text = Form1.days[0].sunset;
+            current.Text = currentTemp + "°C";
+            min.Text = minTemp + "°C";
+            max.Text = maxTemp + "°C";
 
-            //if (Form1.days[0].conditionValue >= "200" && Form1.days[0].conditionValue >= "250") {
-            //CurrentScreen.BackgroundImage = Properties.Resources.Rain3;
-            //}
-
-            ////OconditionsLabel.Text = Form1.days[0].condition;
-            ////add pictures
-            ////assign numbers to pictures (i.e. Sunny = 1, Cloudy = 2...)
-            ////add to pictureBox
-            ////if conditions = 1, display sun picture
-            current.Text = Form1.days[0].currentTemp;
-            min.Text = Form1.days[0].tempLow;
-            max.Text = Form1.days[0].tempHigh;
-        }
-
-        private void convertTo()
-        {
-            for (int i = 0; i < Form1.days.Count; i++)
+            if (conditionValue >= 200 && conditionValue <= 235)
             {
-                int conditionValue = int.Parse(Form1.days[i].conditionValue);
-                int maxTemp = int.Parse(Form1.days[i].tempHigh);
-                int minTemp = int.Parse(Form1.days[i].tempLow);
+                BackgroundImage = Properties.Resources.ThunderstormsIcon;
             }
+            else if (conditionValue >= 300 && conditionValue <= 325)
+            {
+                BackgroundImage = Properties.Resources.drizzleIcon;
+            }
+            else if (conditionValue >= 500 && conditionValue <= 535)
+            {
+                BackgroundImage = Properties.Resources.RainIcon;
+            }
+            else if (conditionValue >= 600 && conditionValue <= 630)
+            {
+                BackgroundImage = Properties.Resources.snowIcon;
+            }
+            else if (conditionValue >= 700 && conditionValue <= 790)
+            {
+                BackgroundImage = Properties.Resources.foggyIcon;
+            }
+            else if (conditionValue == 800)
+            {
+                BackgroundImage = Properties.Resources.sunnyIcon;
+            }
+            else if (conditionValue >= 801 && conditionValue <= 805)
+            {
+                BackgroundImage = Properties.Resources.cloudyIcon;
+            }
+
+            //may have to find a way to properly format
+            lastUpdatedLabel.Text = "Last updated" + Form1.days[0].lastUpdated;
         }
 
         private void forecastLabel_Click(object sender, EventArgs e)

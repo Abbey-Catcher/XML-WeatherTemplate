@@ -63,6 +63,36 @@ namespace XML_WeatherTemplate.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cloudyIcon {
+            get {
+                object obj = ResourceManager.GetObject("cloudyIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drizzleIcon {
+            get {
+                object obj = ResourceManager.GetObject("drizzleIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap foggyIcon {
+            get {
+                object obj = ResourceManager.GetObject("foggyIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Rain3 {
             get {
                 object obj = ResourceManager.GetObject("Rain3", resourceCulture);
@@ -76,6 +106,36 @@ namespace XML_WeatherTemplate.Properties {
         internal static System.Drawing.Bitmap RainIcon {
             get {
                 object obj = ResourceManager.GetObject("RainIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snowIcon {
+            get {
+                object obj = ResourceManager.GetObject("snowIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sunnyIcon {
+            get {
+                object obj = ResourceManager.GetObject("sunnyIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThunderstormsIcon {
+            get {
+                object obj = ResourceManager.GetObject("ThunderstormsIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

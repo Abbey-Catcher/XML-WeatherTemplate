@@ -67,13 +67,32 @@ namespace XML_WeatherTemplate
 
             //TODO: find the city and current temperature and add to appropriate item in days list
             reader.ReadToFollowing("city");
-            days[0].location = reader.GetAttribute("name");
+            days[0].city = reader.GetAttribute("name");
+
+            days[0].country = reader.GetAttribute("country");
+
+            reader.ReadToFollowing("sun");
+            days[0].sunrise = reader.GetAttribute("rise");
+            days[0].sunset = reader.GetAttribute("set");
 
             reader.ReadToFollowing("temperature");
-            days[0].currentTemp = reader.GetAttribute("value");
+            days[0].currentTemp = reader.GetAttribute("value"); //current temperature
             days[0].tempHigh = reader.GetAttribute("max");
             days[0].tempLow = reader.GetAttribute("min");
-            days[0].tempUnit = reader.GetAttribute("unit");
+
+            reader.ReadToFollowing("feels_like");
+            days[0].feelsLike = reader.GetAttribute("value");
+
+            reader.ReadToFollowing("humidity");
+            days[0].humidity = reader.GetAttribute("value");
+            days[0].hUnits = reader.GetAttribute("unit");
+
+            reader.ReadToFollowing("weather");
+            days[0].conditionValue = reader.GetAttribute("number");
+
+
+            reader.ReadToFollowing("lastupdate");
+            days[0].lastUpdated = reader.GetAttribute("value");
         }
     }
 }

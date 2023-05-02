@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace XML_WeatherTemplate
 {
@@ -20,18 +21,29 @@ namespace XML_WeatherTemplate
 
         public void displayForecast()
         {
-            convertTo();
+            for (int i = 0; i < Form1.days.Count; i++)
+            //foreach (Day day in days)
+            {
+                //List<int> intList = Form1.days.Select(Day => Day.conditionValue).Select(int.Parse).ToList();
+                //Console.WriteLine(string.Join(", ", intList));
+                int conditionValues = int.Parse(Form1.days[i].conditionValue);
+                double tempMax = double.Parse(Form1.days[i].tempHigh);
+                double tempMin = double.Parse(Form1.days[i].tempLow);
+                double maxTemp = Math.Round(tempMax);
+                double minTemp = Math.Round(tempMin);
+                min1.Text = minTemp + "°C";
+                max1.Text = maxTemp + "°C";
+            }
 
+            //double maxTemp = Math.Round(tempMax);
+            //double minTemp = Math.Round(tempMin);
             date1.Text = Form1.days[1].date;
-            ////conditionsLabel.Text = Form1.days[1].condition;
-            //Form1.days[1].conditionValue
-            //if (Form1.days[].conditionValue >= "200")
+            //if (conditionValue >= 200 && conditionValue <= 250)
             //{
-            //    conditions1.Image = Properties.Resources.RainIcon;
+            //    BackgroundImage = Properties.Resources.Rain3;
             //}
-            //Form1.days[1].tempHigh = Convert.ToInt32();
-            max1.Text = Form1.days[1].tempHigh;
-            min1.Text = Form1.days[1].tempLow;
+            //min1.Text = minTemp + "°C";
+            //max1.Text = maxTemp + "°C";
 
             date2.Text = Form1.days[2].date;
             //conditionsLabel.Text = Form1.days[2].condition;
@@ -54,15 +66,6 @@ namespace XML_WeatherTemplate
             date6.Text = Form1.days[6].date;
             max6.Text = Form1.days[6].tempHigh;
             min6.Text = Form1.days[6].tempLow;
-        }
-
-        private void convertTo()
-        {
-            for (int i = 0; i < Form1.days.Count; i++)
-            {
-                int maxTemp = int.Parse(Form1.days[i].tempHigh);
-                int minTemp = int.Parse(Form1.days[i].tempLow);
-            }
         }
 
         private void todaysForecast_Click(object sender, EventArgs e)

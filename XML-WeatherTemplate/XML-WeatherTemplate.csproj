@@ -102,5 +102,23 @@
   <ItemGroup>
     <None Include="Resources\RainIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThunderstormsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drizzleIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snowIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloudyIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sunnyIcon.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foggyIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
