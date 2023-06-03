@@ -16,6 +16,11 @@ namespace XML_WeatherTemplate
         //list to hold day objects
         public static List<Day> days = new List<Day>();
 
+        string URL1 = "http://api.openweathermap.org/data/2.5/weather?q=";
+        string startSearch = "Stratford,CA";
+        string URL2 = "&mode=xml&units=metric&appid=3f2e224b815c0ed45524322e145149f0";
+
+
         public Form1()
         {
             InitializeComponent();
@@ -25,10 +30,11 @@ namespace XML_WeatherTemplate
 
             // open weather screen for todays weather
             CurrentScreen cs = new CurrentScreen();
+            //CurrentScreen.days = days;
             this.Controls.Add(cs);
         }
 
-        private void ExtractForecast()
+        public static void ExtractForecast()
         {
             XmlReader reader = XmlReader.Create("http://api.openweathermap.org/data/2.5/forecast/daily?q=Stratford,CA&mode=xml&units=metric&cnt=7&appid=3f2e224b815c0ed45524322e145149f0");
 
@@ -55,21 +61,27 @@ namespace XML_WeatherTemplate
                     days.Add(d);
                 }
             }
-            int conditionValue = int.Parse(Form1.days[0].conditionValue);
+            //foreach (Day day in days)
+            //{
+            //    int conditionValues = int.Parse(days.conditionValue)
+            //}
 
             reader.Close();
         }
 
-        private void ExtractCurrent()
+        public void ExtractCurrent()
         {
+            //string search = SearchScreen.search1;
+            string complete = URL1 + search + URL2;
             // current info is not included in forecast file so we need to use this file to get it
-            XmlReader reader = XmlReader.Create("http://api.openweathermap.org/data/2.5/weather?q=Stratford,CA&mode=xml&units=metric&appid=3f2e224b815c0ed45524322e145149f0");
+            XmlReader reader = XmlReader.Create(complete);
 
             //TODO: find the city and current temperature and add to appropriate item in days list
             reader.ReadToFollowing("city");
             days[0].city = reader.GetAttribute("name");
 
-            days[0].country = reader.GetAttribute("country");
+            reader.ReadToFollowing("country");
+            days[0].country = reader.ReadString();
 
             reader.ReadToFollowing("sun");
             days[0].sunrise = reader.GetAttribute("rise");

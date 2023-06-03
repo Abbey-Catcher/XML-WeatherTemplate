@@ -54,6 +54,7 @@
             this.max6 = new System.Windows.Forms.Label();
             this.conditions6 = new System.Windows.Forms.PictureBox();
             this.date6 = new System.Windows.Forms.Label();
+            this.searchButton = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.conditions1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.conditions2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.conditions3)).BeginInit();
@@ -65,7 +66,7 @@
             // date1
             // 
             this.date1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.date1.Location = new System.Drawing.Point(30, 106);
+            this.date1.Location = new System.Drawing.Point(31, 106);
             this.date1.Name = "date1";
             this.date1.Size = new System.Drawing.Size(103, 23);
             this.date1.TabIndex = 0;
@@ -73,9 +74,11 @@
             // 
             // conditions1
             // 
-            this.conditions1.Location = new System.Drawing.Point(33, 145);
+            this.conditions1.BackColor = System.Drawing.Color.Transparent;
+            this.conditions1.Location = new System.Drawing.Point(33, 174);
             this.conditions1.Name = "conditions1";
             this.conditions1.Size = new System.Drawing.Size(100, 100);
+            this.conditions1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.conditions1.TabIndex = 1;
             this.conditions1.TabStop = false;
             // 
@@ -83,7 +86,7 @@
             // 
             this.max1.BackColor = System.Drawing.Color.Red;
             this.max1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.max1.Location = new System.Drawing.Point(33, 262);
+            this.max1.Location = new System.Drawing.Point(33, 312);
             this.max1.Name = "max1";
             this.max1.Size = new System.Drawing.Size(50, 50);
             this.max1.TabIndex = 2;
@@ -93,7 +96,7 @@
             // 
             this.min1.BackColor = System.Drawing.SystemColors.Highlight;
             this.min1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.min1.Location = new System.Drawing.Point(83, 262);
+            this.min1.Location = new System.Drawing.Point(83, 312);
             this.min1.Name = "min1";
             this.min1.Size = new System.Drawing.Size(50, 50);
             this.min1.TabIndex = 3;
@@ -104,7 +107,7 @@
             this.forecastLabel.BackColor = System.Drawing.Color.Transparent;
             this.forecastLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.forecastLabel.ForeColor = System.Drawing.Color.White;
-            this.forecastLabel.Location = new System.Drawing.Point(415, 14);
+            this.forecastLabel.Location = new System.Drawing.Point(363, 23);
             this.forecastLabel.Name = "forecastLabel";
             this.forecastLabel.Size = new System.Drawing.Size(83, 28);
             this.forecastLabel.TabIndex = 42;
@@ -115,7 +118,7 @@
             this.todaysForecast.BackColor = System.Drawing.Color.Transparent;
             this.todaysForecast.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.todaysForecast.ForeColor = System.Drawing.Color.White;
-            this.todaysForecast.Location = new System.Drawing.Point(250, 14);
+            this.todaysForecast.Location = new System.Drawing.Point(177, 23);
             this.todaysForecast.Name = "todaysForecast";
             this.todaysForecast.Size = new System.Drawing.Size(83, 28);
             this.todaysForecast.TabIndex = 43;
@@ -126,7 +129,7 @@
             // 
             this.min2.BackColor = System.Drawing.SystemColors.Highlight;
             this.min2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.min2.Location = new System.Drawing.Point(210, 262);
+            this.min2.Location = new System.Drawing.Point(210, 312);
             this.min2.Name = "min2";
             this.min2.Size = new System.Drawing.Size(50, 50);
             this.min2.TabIndex = 47;
@@ -136,7 +139,7 @@
             // 
             this.max2.BackColor = System.Drawing.Color.Red;
             this.max2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.max2.Location = new System.Drawing.Point(160, 262);
+            this.max2.Location = new System.Drawing.Point(160, 312);
             this.max2.Name = "max2";
             this.max2.Size = new System.Drawing.Size(50, 50);
             this.max2.TabIndex = 46;
@@ -144,9 +147,10 @@
             // 
             // conditions2
             // 
-            this.conditions2.Location = new System.Drawing.Point(160, 145);
+            this.conditions2.Location = new System.Drawing.Point(160, 174);
             this.conditions2.Name = "conditions2";
             this.conditions2.Size = new System.Drawing.Size(100, 100);
+            this.conditions2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.conditions2.TabIndex = 45;
             this.conditions2.TabStop = false;
             // 
@@ -163,7 +167,7 @@
             // 
             this.min3.BackColor = System.Drawing.SystemColors.Highlight;
             this.min3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.min3.Location = new System.Drawing.Point(342, 262);
+            this.min3.Location = new System.Drawing.Point(342, 312);
             this.min3.Name = "min3";
             this.min3.Size = new System.Drawing.Size(50, 50);
             this.min3.TabIndex = 51;
@@ -173,7 +177,7 @@
             // 
             this.max3.BackColor = System.Drawing.Color.Red;
             this.max3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.max3.Location = new System.Drawing.Point(292, 262);
+            this.max3.Location = new System.Drawing.Point(292, 312);
             this.max3.Name = "max3";
             this.max3.Size = new System.Drawing.Size(50, 50);
             this.max3.TabIndex = 50;
@@ -181,9 +185,10 @@
             // 
             // conditions3
             // 
-            this.conditions3.Location = new System.Drawing.Point(292, 145);
+            this.conditions3.Location = new System.Drawing.Point(292, 174);
             this.conditions3.Name = "conditions3";
             this.conditions3.Size = new System.Drawing.Size(100, 100);
+            this.conditions3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.conditions3.TabIndex = 49;
             this.conditions3.TabStop = false;
             // 
@@ -200,7 +205,7 @@
             // 
             this.min4.BackColor = System.Drawing.SystemColors.Highlight;
             this.min4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.min4.Location = new System.Drawing.Point(470, 262);
+            this.min4.Location = new System.Drawing.Point(470, 312);
             this.min4.Name = "min4";
             this.min4.Size = new System.Drawing.Size(50, 50);
             this.min4.TabIndex = 55;
@@ -210,7 +215,7 @@
             // 
             this.max4.BackColor = System.Drawing.Color.Red;
             this.max4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.max4.Location = new System.Drawing.Point(420, 262);
+            this.max4.Location = new System.Drawing.Point(420, 312);
             this.max4.Name = "max4";
             this.max4.Size = new System.Drawing.Size(50, 50);
             this.max4.TabIndex = 54;
@@ -218,9 +223,10 @@
             // 
             // conditions4
             // 
-            this.conditions4.Location = new System.Drawing.Point(420, 145);
+            this.conditions4.Location = new System.Drawing.Point(420, 174);
             this.conditions4.Name = "conditions4";
             this.conditions4.Size = new System.Drawing.Size(100, 100);
+            this.conditions4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.conditions4.TabIndex = 53;
             this.conditions4.TabStop = false;
             // 
@@ -237,7 +243,7 @@
             // 
             this.min5.BackColor = System.Drawing.SystemColors.Highlight;
             this.min5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.min5.Location = new System.Drawing.Point(592, 262);
+            this.min5.Location = new System.Drawing.Point(592, 312);
             this.min5.Name = "min5";
             this.min5.Size = new System.Drawing.Size(50, 50);
             this.min5.TabIndex = 59;
@@ -247,7 +253,7 @@
             // 
             this.max5.BackColor = System.Drawing.Color.Red;
             this.max5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.max5.Location = new System.Drawing.Point(542, 262);
+            this.max5.Location = new System.Drawing.Point(542, 312);
             this.max5.Name = "max5";
             this.max5.Size = new System.Drawing.Size(50, 50);
             this.max5.TabIndex = 58;
@@ -255,9 +261,10 @@
             // 
             // conditions5
             // 
-            this.conditions5.Location = new System.Drawing.Point(542, 145);
+            this.conditions5.Location = new System.Drawing.Point(542, 174);
             this.conditions5.Name = "conditions5";
             this.conditions5.Size = new System.Drawing.Size(100, 100);
+            this.conditions5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.conditions5.TabIndex = 57;
             this.conditions5.TabStop = false;
             // 
@@ -274,7 +281,7 @@
             // 
             this.min6.BackColor = System.Drawing.SystemColors.Highlight;
             this.min6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.min6.Location = new System.Drawing.Point(719, 262);
+            this.min6.Location = new System.Drawing.Point(719, 312);
             this.min6.Name = "min6";
             this.min6.Size = new System.Drawing.Size(50, 50);
             this.min6.TabIndex = 63;
@@ -284,7 +291,7 @@
             // 
             this.max6.BackColor = System.Drawing.Color.Red;
             this.max6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.max6.Location = new System.Drawing.Point(669, 262);
+            this.max6.Location = new System.Drawing.Point(669, 312);
             this.max6.Name = "max6";
             this.max6.Size = new System.Drawing.Size(50, 50);
             this.max6.TabIndex = 62;
@@ -292,9 +299,10 @@
             // 
             // conditions6
             // 
-            this.conditions6.Location = new System.Drawing.Point(669, 145);
+            this.conditions6.Location = new System.Drawing.Point(669, 174);
             this.conditions6.Name = "conditions6";
             this.conditions6.Size = new System.Drawing.Size(100, 100);
+            this.conditions6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.conditions6.TabIndex = 61;
             this.conditions6.TabStop = false;
             // 
@@ -307,11 +315,24 @@
             this.date6.TabIndex = 60;
             this.date6.Text = "date";
             // 
+            // searchButton
+            // 
+            this.searchButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.ForeColor = System.Drawing.Color.White;
+            this.searchButton.Location = new System.Drawing.Point(559, 23);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(83, 28);
+            this.searchButton.TabIndex = 74;
+            this.searchButton.Text = "Search";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
             // ForecastScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.min6);
             this.Controls.Add(this.max6);
             this.Controls.Add(this.conditions6);
@@ -378,5 +399,6 @@
         private System.Windows.Forms.Label max6;
         private System.Windows.Forms.PictureBox conditions6;
         private System.Windows.Forms.Label date6;
+        private System.Windows.Forms.Label searchButton;
     }
 }

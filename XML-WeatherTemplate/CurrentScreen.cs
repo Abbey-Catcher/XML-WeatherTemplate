@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace XML_WeatherTemplate
 {
@@ -20,6 +22,8 @@ namespace XML_WeatherTemplate
 
         public void DisplayCurrent()
         {
+            
+            //convert and round values
             int conditionValue = int.Parse(Form1.days[0].conditionValue);
             double tempCurrent = double.Parse(Form1.days[0].currentTemp);
             double currentTemp = Math.Round(tempCurrent);
@@ -28,46 +32,66 @@ namespace XML_WeatherTemplate
             double tempMin = double.Parse(Form1.days[0].tempLow);
             double minTemp = Math.Round(tempMin);
 
-            date1.Text = Form1.days[0].date;
-            cityOutput.Text = Form1.days[0].city + Form1.days[0].country;
-            //May have to format times
-            sunriseLabel.Text = Form1.days[0].sunrise;
-            sunsetLabel.Text = Form1.days[0].sunset;
-            current.Text = currentTemp + "°C";
+            //Format sun times
+            DateTime sunriseDateTime = DateTime.Parse(Form1.days[0].sunrise);
+            string sunriseTime = sunriseDateTime.ToString("t");
+            DateTime sunsetDateTime = DateTime.Parse(Form1.days[0].sunset);
+            string sunsetTime = sunsetDateTime.ToString("t");
+
+            //formatted date & last updated
+            DateTime Date = DateTime.Parse(Form1.days[0].date);
+            string dateFormatted = Date.ToString("D");
+            DateTime LU = DateTime.Parse(Form1.days[0].lastUpdated);
+            string LUFormatted = LU.ToString("g");
+
+            //Display information
+            date1.Text = dateFormatted;
+            cityOutput.Text = Form1.days[0].city + ", " + Form1.days[0].country;
+            sunriseLabel.Text = "Sunrise:" + sunriseTime;
+            sunsetLabel.Text = "Sunset:" + sunsetTime;
+            current.Text = "Currently: " + currentTemp + "°C";
             min.Text = minTemp + "°C";
             max.Text = maxTemp + "°C";
 
+            //display Conditions
             if (conditionValue >= 200 && conditionValue <= 235)
             {
-                BackgroundImage = Properties.Resources.ThunderstormsIcon;
+                conditionsBox.Image = Properties.Resources.ThunderstormsIcon;
+                BackColor = Color.DarkSlateGray;
             }
             else if (conditionValue >= 300 && conditionValue <= 325)
             {
-                BackgroundImage = Properties.Resources.drizzleIcon;
+                conditionsBox.Image = Properties.Resources.drizzleIcon;
+                BackColor = Color.DarkGray;
             }
             else if (conditionValue >= 500 && conditionValue <= 535)
             {
-                BackgroundImage = Properties.Resources.RainIcon;
+                conditionsBox.Image = Properties.Resources.RainIcon;
+                BackColor = Color.DimGray;
             }
             else if (conditionValue >= 600 && conditionValue <= 630)
             {
-                BackgroundImage = Properties.Resources.snowIcon;
+                conditionsBox.Image = Properties.Resources.snowIcon;
+                BackColor = Color.Gainsboro;
             }
             else if (conditionValue >= 700 && conditionValue <= 790)
             {
-                BackgroundImage = Properties.Resources.foggyIcon;
+                conditionsBox.Image = Properties.Resources.foggyIcon;
+                BackColor = Color.LightGray;
             }
             else if (conditionValue == 800)
             {
-                BackgroundImage = Properties.Resources.sunnyIcon;
+                conditionsBox.Image = Properties.Resources.sunnyIcon;
+                BackColor = Color.DeepSkyBlue;
             }
             else if (conditionValue >= 801 && conditionValue <= 805)
             {
-                BackgroundImage = Properties.Resources.cloudyIcon;
+                conditionsBox.Image = Properties.Resources.cloudyIcon;
+                BackColor = Color.SkyBlue;
             }
 
-            //may have to find a way to properly format
-            lastUpdatedLabel.Text = "Last updated" + Form1.days[0].lastUpdated;
+            //Last updated label
+            lastUpdatedLabel.Text = "Last updated: " + LUFormatted;
         }
 
         private void forecastLabel_Click(object sender, EventArgs e)
@@ -78,6 +102,18 @@ namespace XML_WeatherTemplate
             ForecastScreen fs = new ForecastScreen();
             f.Size = new Size(800, 450);
             f.Controls.Add(fs);
+            fs.Focus();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+
+            SearchScreen ss = new SearchScreen();
+            f.Size = new Size(500, 500);
+            f.Controls.Add(ss);
+            ss.Focus();
         }
     }
 }
