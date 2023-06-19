@@ -16,9 +16,9 @@ namespace XML_WeatherTemplate
         //list to hold day objects
         public static List<Day> days = new List<Day>();
 
-        string URL1 = "http://api.openweathermap.org/data/2.5/weather?q=";
+  
         string startSearch = "Stratford,CA";
-        string URL2 = "&mode=xml&units=metric&appid=3f2e224b815c0ed45524322e145149f0";
+
 
 
         public Form1()
@@ -71,8 +71,11 @@ namespace XML_WeatherTemplate
 
         public void ExtractCurrent()
         {
+            string URL1 = "http://api.openweathermap.org/data/2.5/weather?q=";
+            string URL2 = "&mode=xml&units=metric&appid=3f2e224b815c0ed45524322e145149f0";
             //string search = SearchScreen.search1;
-            string complete = URL1 + search + URL2;
+            string complete = URL1 + startSearch + URL2;
+            
             // current info is not included in forecast file so we need to use this file to get it
             XmlReader reader = XmlReader.Create(complete);
 

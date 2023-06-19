@@ -67,8 +67,15 @@ namespace XML_WeatherTemplate
 
         public void goButton_Click(object sender, EventArgs e)
         {
-            //search1 = searchBox.Text;
+            Form1.days[0].city = searchBox.Text;
 
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+
+            CurrentScreen cs = new CurrentScreen();
+            f.Size = new Size(325, 475);
+            f.Controls.Add(cs);
+            cs.Focus();
         }
     }
 }
