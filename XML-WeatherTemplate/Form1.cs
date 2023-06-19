@@ -17,7 +17,7 @@ namespace XML_WeatherTemplate
         public static List<Day> days = new List<Day>();
 
   
-        string startSearch = "Stratford,CA";
+        public static string startSearch = "Stratford,CA";
 
 
 
@@ -36,40 +36,54 @@ namespace XML_WeatherTemplate
 
         public static void ExtractForecast()
         {
-            XmlReader reader = XmlReader.Create("http://api.openweathermap.org/data/2.5/forecast/daily?q=Stratford,CA&mode=xml&units=metric&cnt=7&appid=3f2e224b815c0ed45524322e145149f0");
-
-            while (reader.Read())
+            try
             {
-                //creates a day object
-                Day d = new Day();
 
-                //fill day object with required data
-                reader.ReadToFollowing("time");
-                d.date = reader.GetAttribute("day");
+                string URL1 = "http://api.openweathermap.org/data/2.5/forecast/daily?q=";
+                string URL2 = "&mode=xml&units=metric&cnt=7&appid=3f2e224b815c0ed45524322e145149f0";
 
-                reader.ReadToFollowing("symbol");
-                d.conditionValue = reader.GetAttribute("number");
+                string complete = URL1 + startSearch + URL2;
 
-                reader.ReadToFollowing("temperature");
-                d.tempLow = reader.GetAttribute("min");
-                d.tempHigh = reader.GetAttribute("max");
-                d.tempUnit = reader.GetAttribute("unit");
+                XmlReader reader = XmlReader.Create(complete);
 
-                //adds days to the list if not null
-                if (d.date != null)
+
+                while (reader.Read())
                 {
-                    days.Add(d);
-                }
-            }
-            //foreach (Day day in days)
-            //{
-            //    int conditionValues = int.Parse(days.conditionValue)
-            //}
+                    //creates a day object
+                    Day d = new Day();
 
-            reader.Close();
+                    //fill day object with required data
+                    reader.ReadToFollowing("time");
+                    d.date = reader.GetAttribute("day");
+
+                    reader.ReadToFollowing("symbol");
+                    d.conditionValue = reader.GetAttribute("number");
+
+                    reader.ReadToFollowing("temperature");
+                    d.tempLow = reader.GetAttribute("min");
+                    d.tempHigh = reader.GetAttribute("max");
+                    d.tempUnit = reader.GetAttribute("unit");
+
+                    //adds days to the list if not null
+                    if (d.date != null)
+                    {
+                        days.Add(d);
+                    }
+                }
+                //foreach (Day day in days)
+                //{
+                //    int conditionValues = int.Parse(days.conditionValue)
+                //}
+
+                reader.Close();
+            }
+            catch
+            {
+                Console.WriteLine("Error");
+            }
         }
 
-        public void ExtractCurrent()
+        public static void ExtractCurrent()
         {
             string URL1 = "http://api.openweathermap.org/data/2.5/weather?q=";
             string URL2 = "&mode=xml&units=metric&appid=3f2e224b815c0ed45524322e145149f0";

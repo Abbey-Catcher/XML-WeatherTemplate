@@ -18,27 +18,7 @@ namespace XML_WeatherTemplate
         public SearchScreen()
         {
             InitializeComponent();
-            //Search();
         }
-
-        //private async Task Search()
-        //{
-        //    string query = searchBox.Text;
-        //    string apiKey = "your_api_key";
-        //    string url = $"https://dev.virtualearth.net/REST/v1/Locations?q={query}&key={apiKey}";
-
-        //    using (HttpClient client = new HttpClient())
-        //    {
-        //        HttpResponseMessage response = await client.GetAsync(url);
-        //        response.EnsureSuccessStatusCode();
-        //        string responseBody = await response.Content.ReadAsStringAsync();
-        //        // Parse response body to get search results
-        //        // Display search results
-
-        //        List<string> suggestions = new List<string>();
-        //        searchBox.AutoCompleteCustomSource.AddRange(suggestions.ToArray());
-        //    }
-        //}
 
         private void todaysForecast_Click(object sender, EventArgs e)
         {
@@ -62,12 +42,32 @@ namespace XML_WeatherTemplate
             fs.Focus();
         }
 
+        private void goForecastBtn_Click(object sender, EventArgs e)
+        {
+            //forecast btn
+            Form1.startSearch = searchBox.Text;
 
-        //public static string search1 = "";
+            Form1.days.Clear();
+
+            Form1.ExtractForecast();
+
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+
+            ForecastScreen fs = new ForecastScreen();
+            f.Size = new Size(800, 450);
+            f.Controls.Add(fs);
+            fs.Focus();
+        }
 
         public void goButton_Click(object sender, EventArgs e)
         {
-            Form1.days[0].city = searchBox.Text;
+            //Current btn
+            Form1.startSearch = searchBox.Text;
+
+            Form1.days.Clear();
+            
+            Form1.ExtractCurrent();
 
             Form f = this.FindForm();
             f.Controls.Remove(this);
