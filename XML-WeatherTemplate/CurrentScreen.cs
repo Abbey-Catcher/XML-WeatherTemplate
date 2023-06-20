@@ -34,6 +34,7 @@ namespace XML_WeatherTemplate
 
             //Format sun times
             DateTime sunriseDateTime = DateTime.Parse(Form1.days[0].sunrise);
+            //DateTimeKind sunriseDateTimeKind = DateTimeKind.Utc;
             string sunriseTime = sunriseDateTime.ToString("t");
             DateTime sunsetDateTime = DateTime.Parse(Form1.days[0].sunset);
             string sunsetTime = sunsetDateTime.ToString("t");

@@ -19,8 +19,6 @@ namespace XML_WeatherTemplate
   
         public static string startSearch = "Stratford,CA";
 
-
-
         public Form1()
         {
             InitializeComponent();
@@ -85,43 +83,53 @@ namespace XML_WeatherTemplate
 
         public static void ExtractCurrent()
         {
-            string URL1 = "http://api.openweathermap.org/data/2.5/weather?q=";
-            string URL2 = "&mode=xml&units=metric&appid=3f2e224b815c0ed45524322e145149f0";
-            //string search = SearchScreen.search1;
-            string complete = URL1 + startSearch + URL2;
-            
-            // current info is not included in forecast file so we need to use this file to get it
-            XmlReader reader = XmlReader.Create(complete);
+            try
+            {
+                string URL1 = "http://api.openweathermap.org/data/2.5/weather?q=";
+                string URL2 = "&mode=xml&units=metric&appid=3f2e224b815c0ed45524322e145149f0";
+                //string search = SearchScreen.search1;
+                string complete = URL1 + startSearch + URL2;
 
-            //TODO: find the city and current temperature and add to appropriate item in days list
-            reader.ReadToFollowing("city");
-            days[0].city = reader.GetAttribute("name");
+                // current info is not included in forecast file so we need to use this file to get it
+                XmlReader reader = XmlReader.Create(complete);
 
-            reader.ReadToFollowing("country");
-            days[0].country = reader.ReadString();
+                //TODO: find the city and current temperature and add to appropriate item in days list
+                reader.ReadToFollowing("city");
+                days[0].city = reader.GetAttribute("name");
 
-            reader.ReadToFollowing("sun");
-            days[0].sunrise = reader.GetAttribute("rise");
-            days[0].sunset = reader.GetAttribute("set");
+                reader.ReadToFollowing("country");
+                days[0].country = reader.ReadString();
 
-            reader.ReadToFollowing("temperature");
-            days[0].currentTemp = reader.GetAttribute("value"); //current temperature
-            days[0].tempHigh = reader.GetAttribute("max");
-            days[0].tempLow = reader.GetAttribute("min");
+                reader.ReadToFollowing("timezone");
+                days[0].timezone = reader.ReadString();
 
-            reader.ReadToFollowing("feels_like");
-            days[0].feelsLike = reader.GetAttribute("value");
+                reader.ReadToFollowing("sun");
+                days[0].sunrise = reader.GetAttribute("rise");
+                days[0].sunset = reader.GetAttribute("set");
 
-            reader.ReadToFollowing("humidity");
-            days[0].humidity = reader.GetAttribute("value");
-            days[0].hUnits = reader.GetAttribute("unit");
+                reader.ReadToFollowing("temperature");
+                days[0].currentTemp = reader.GetAttribute("value"); //current temperature
+                days[0].tempHigh = reader.GetAttribute("max");
+                days[0].tempLow = reader.GetAttribute("min");
 
-            reader.ReadToFollowing("weather");
-            days[0].conditionValue = reader.GetAttribute("number");
+                reader.ReadToFollowing("feels_like");
+                days[0].feelsLike = reader.GetAttribute("value");
+
+                reader.ReadToFollowing("humidity");
+                days[0].humidity = reader.GetAttribute("value");
+                days[0].hUnits = reader.GetAttribute("unit");
+
+                reader.ReadToFollowing("weather");
+                days[0].conditionValue = reader.GetAttribute("number");
 
 
-            reader.ReadToFollowing("lastupdate");
-            days[0].lastUpdated = reader.GetAttribute("value");
+                reader.ReadToFollowing("lastupdate");
+                days[0].lastUpdated = reader.GetAttribute("value");
+            }
+            catch
+            {
+                Console.WriteLine("Error");
+            }
         }
     }
 }
