@@ -9,11 +9,11 @@ namespace XML_WeatherTemplate
     public class Day
     {
 
-        public string date, currentTemp, city, country, timezone, conditionValue, tempHigh, tempLow, tempUnit, sunrise, sunset, feelsLike, windSpeed, windDirection, precipitation, humidity, hUnits, lastUpdated;
+        public string date, currentTemp, city, country, conditionValue, tempHigh, tempLow, tempUnit, feelsLike, windSpeed, windDirection, precipitation, humidity, hUnits, lastUpdated;
 
         public Day()
         {
-            date = currentTemp = city = country = timezone = conditionValue = tempHigh = tempLow = tempUnit = feelsLike = sunrise = sunset = windSpeed = windDirection = precipitation = humidity = hUnits = lastUpdated = "";
+            date = currentTemp = city = country = conditionValue = tempHigh = tempLow = tempUnit = feelsLike = windSpeed = windDirection = precipitation = humidity = hUnits = lastUpdated = "";
         }
     }
 }

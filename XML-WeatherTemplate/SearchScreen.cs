@@ -42,31 +42,12 @@ namespace XML_WeatherTemplate
             fs.Focus();
         }
 
-        private void goForecastBtn_Click(object sender, EventArgs e)
-        {
-            //forecast btn
-            Form1.startSearch = searchBox.Text;
-
-            Form1.days.Clear();
-
-            Form1.ExtractForecast();
-
-            Form f = this.FindForm();
-            f.Controls.Remove(this);
-
-            ForecastScreen fs = new ForecastScreen();
-            f.Size = new Size(800, 450);
-            f.Controls.Add(fs);
-            fs.Focus();
-        }
-
         public void goButton_Click(object sender, EventArgs e)
         {
             //Current btn
             Form1.startSearch = searchBox.Text;
 
-            Form1.days.Clear();
-            
+            Form1.ExtractForecast();
             Form1.ExtractCurrent();
 
             Form f = this.FindForm();

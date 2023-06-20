@@ -15,9 +15,8 @@ namespace XML_WeatherTemplate
     {
         //list to hold day objects
         public static List<Day> days = new List<Day>();
-
-  
         public static string startSearch = "Stratford,CA";
+        public static bool Error = true;
 
         public Form1()
         {
@@ -44,6 +43,7 @@ namespace XML_WeatherTemplate
 
                 XmlReader reader = XmlReader.Create(complete);
 
+                Form1.days.Clear();
 
                 while (reader.Read())
                 {
@@ -77,7 +77,7 @@ namespace XML_WeatherTemplate
             }
             catch
             {
-                Console.WriteLine("Error");
+                Error = false;
             }
         }
 
@@ -100,13 +100,6 @@ namespace XML_WeatherTemplate
                 reader.ReadToFollowing("country");
                 days[0].country = reader.ReadString();
 
-                reader.ReadToFollowing("timezone");
-                days[0].timezone = reader.ReadString();
-
-                reader.ReadToFollowing("sun");
-                days[0].sunrise = reader.GetAttribute("rise");
-                days[0].sunset = reader.GetAttribute("set");
-
                 reader.ReadToFollowing("temperature");
                 days[0].currentTemp = reader.GetAttribute("value"); //current temperature
                 days[0].tempHigh = reader.GetAttribute("max");
@@ -128,7 +121,7 @@ namespace XML_WeatherTemplate
             }
             catch
             {
-                Console.WriteLine("Error");
+                Error = false;
             }
         }
     }

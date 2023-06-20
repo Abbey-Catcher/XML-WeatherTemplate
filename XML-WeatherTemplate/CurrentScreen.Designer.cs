@@ -37,9 +37,8 @@
             this.current = new System.Windows.Forms.Label();
             this.cityOutput = new System.Windows.Forms.Label();
             this.lastUpdatedLabel = new System.Windows.Forms.Label();
-            this.sunriseLabel = new System.Windows.Forms.Label();
-            this.sunsetLabel = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.conditionsBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +69,7 @@
             // 
             this.min.BackColor = System.Drawing.SystemColors.Highlight;
             this.min.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.min.Location = new System.Drawing.Point(66, 344);
+            this.min.Location = new System.Drawing.Point(199, 339);
             this.min.Name = "min";
             this.min.Size = new System.Drawing.Size(50, 50);
             this.min.TabIndex = 67;
@@ -80,7 +79,7 @@
             // 
             this.max.BackColor = System.Drawing.Color.Red;
             this.max.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.max.Location = new System.Drawing.Point(14, 344);
+            this.max.Location = new System.Drawing.Point(86, 339);
             this.max.Name = "max";
             this.max.Size = new System.Drawing.Size(50, 50);
             this.max.TabIndex = 66;
@@ -140,28 +139,6 @@
             this.lastUpdatedLabel.Text = "lastUpdated";
             this.lastUpdatedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // sunriseLabel
-            // 
-            this.sunriseLabel.BackColor = System.Drawing.Color.Transparent;
-            this.sunriseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.sunriseLabel.Location = new System.Drawing.Point(165, 316);
-            this.sunriseLabel.Name = "sunriseLabel";
-            this.sunriseLabel.Size = new System.Drawing.Size(135, 38);
-            this.sunriseLabel.TabIndex = 71;
-            this.sunriseLabel.Text = "sunrise";
-            this.sunriseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // sunsetLabel
-            // 
-            this.sunsetLabel.BackColor = System.Drawing.Color.Transparent;
-            this.sunsetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.sunsetLabel.Location = new System.Drawing.Point(165, 371);
-            this.sunsetLabel.Name = "sunsetLabel";
-            this.sunsetLabel.Size = new System.Drawing.Size(135, 38);
-            this.sunsetLabel.TabIndex = 72;
-            this.sunsetLabel.Text = "sunset";
-            this.sunsetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // searchButton
             // 
             this.searchButton.BackColor = System.Drawing.Color.Transparent;
@@ -174,14 +151,25 @@
             this.searchButton.Text = "Search";
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // errorLabel
+            // 
+            this.errorLabel.BackColor = System.Drawing.Color.Transparent;
+            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.errorLabel.Location = new System.Drawing.Point(44, 127);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(256, 289);
+            this.errorLabel.TabIndex = 74;
+            this.errorLabel.Text = "label1";
+            this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.errorLabel.Visible = false;
+            // 
             // CurrentScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.sunsetLabel);
-            this.Controls.Add(this.sunriseLabel);
             this.Controls.Add(this.lastUpdatedLabel);
             this.Controls.Add(this.cityOutput);
             this.Controls.Add(this.current);
@@ -209,8 +197,7 @@
         private System.Windows.Forms.Label current;
         private System.Windows.Forms.Label cityOutput;
         private System.Windows.Forms.Label lastUpdatedLabel;
-        private System.Windows.Forms.Label sunriseLabel;
-        private System.Windows.Forms.Label sunsetLabel;
         private System.Windows.Forms.Label searchButton;
+        public System.Windows.Forms.Label errorLabel;
     }
 }

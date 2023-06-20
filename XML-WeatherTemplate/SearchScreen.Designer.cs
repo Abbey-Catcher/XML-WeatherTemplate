@@ -33,7 +33,6 @@
             this.todaysForecast = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.goButton = new System.Windows.Forms.Button();
-            this.goForecastBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // searchButton
@@ -90,23 +89,11 @@
             this.goButton.UseVisualStyleBackColor = true;
             this.goButton.Click += new System.EventHandler(this.goButton_Click);
             // 
-            // goForecastBtn
-            // 
-            this.goForecastBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.goForecastBtn.Location = new System.Drawing.Point(44, 267);
-            this.goForecastBtn.Name = "goForecastBtn";
-            this.goForecastBtn.Size = new System.Drawing.Size(282, 84);
-            this.goForecastBtn.TabIndex = 79;
-            this.goForecastBtn.Text = "Get Forecast Weather";
-            this.goForecastBtn.UseVisualStyleBackColor = true;
-            this.goForecastBtn.Click += new System.EventHandler(this.goForecastBtn_Click);
-            // 
             // SearchScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.Controls.Add(this.goForecastBtn);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.searchButton);
@@ -126,6 +113,5 @@
         private System.Windows.Forms.Label todaysForecast;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button goButton;
-        private System.Windows.Forms.Button goForecastBtn;
     }
 }
